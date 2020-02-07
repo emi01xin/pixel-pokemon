@@ -1,0 +1,79 @@
+// PIXEL POKEMON 
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class PixelPokemon extends JFrame implements ActionListener, KeyListener{
+	
+	Timer myTimer;
+	GamePanel game = new GamePanel(this);
+	
+	boolean timeMode;
+	boolean liveMode;
+
+    public PixelPokemon(){
+		super("PixelPokemon");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(1000, 800);
+		
+		myTimer = new Timer(10, this);	 										// Trigger every 10 ms
+		add(game);
+		
+		new Menu(this);
+    }
+    
+    public void start(){
+		myTimer.start();
+		addKeyListener(this);
+		setResizable(false);
+	}
+	
+	/*public void playSound(int n){
+		game.playSound(n);
+		System.out.println(n);
+	}*/
+
+	/*public void resetGame(){
+		game.reset();
+	}*/
+																		
+	public void actionPerformed(ActionEvent e){
+		Object source = e.getSource();
+		
+		if (game != null){
+			setVisible(true);
+			game.move1();
+			
+			/*if(game.gameOver() == false){				
+				setVisible(true);
+				
+				game.move1();
+				game.showGameOver();
+				
+			}
+			
+			//GAMEOVER	
+			if(game.gameOver() == true){
+				setVisible(false);
+			}*/
+			
+			game.repaint();
+		}
+
+	}
+	
+    public void keyTyped(KeyEvent e) {}
+
+    public void keyPressed(KeyEvent e) {
+    	game.setKey(e.getKeyCode(), true);
+    }
+
+    public void keyReleased(KeyEvent e) {
+		game.setKey(e.getKeyCode(), false);
+    }
+	
+    public static void main(String[] arguments) {
+		PixelPokemon frame = new PixelPokemon();
+    }
+}
