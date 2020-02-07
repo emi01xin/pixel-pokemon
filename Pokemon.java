@@ -1,3 +1,5 @@
+// POKEMON CLASS
+
 import java.util.*;
 import java.io.*;
 
