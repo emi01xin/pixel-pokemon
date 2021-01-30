@@ -1,5 +1,5 @@
 # Pixel Pokemon
-Welcome to...
+Welcome to... <br>
 PIXEL POKEMON: Gotta Beat Em' All!
 
 #### How to Play
